@@ -3,3 +3,7 @@ _site
 .sass-cache/
 .DS_Store
 .jekyll-cache
+vendor/
+docker-compose.yml
+Gemfile
+Gemfile.lock

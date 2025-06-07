@@ -22,5 +22,4 @@ is_contact: true
 
 1. [X](https://x.com/avinab_neogy)
 2. [Discord](https://discord.com/users/740580895370510403)
-3. [Github](https://github.com/avinab-neogy)
-4. [Linkedin](https://www.linkedin.com/in/avinab-neogy/)
+3. [Linkedin](https://www.linkedin.com/in/avinab-neogy/)
