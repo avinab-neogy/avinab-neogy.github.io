@@ -17,6 +17,6 @@ i’m starting with my google summer of code journey for a few reasons:
 - the application process can be daunting, so i hope these posts help someone out there.
 - oss is amazing — anyone interested in engineering should give it a try, not just through gsoc.
 
-as time and my interests permit, i’d love to branch out into more diverse topics and interaction. for example, i recently started working on pytorch, so maybe a post on how tensor objects in pytorch work, or a post on cross coders — I have a lot on my mind to write about. hopefully, i’ll get to share all of it here.
+as time and my interests permit, i’d love to branch out into more diverse topics and interaction. for example, i recently started working on [pytorch](https://pytorch.org/), so maybe a post on how tensor objects in pytorch work, or a post on [cross coders](https://transformer-circuits.pub/2024/crosscoders/index.html) — I have a lot on my mind to write about. hopefully, i’ll get to share all of it here.
 
 in conclusion, here’s my [first post](/writing/gsoc-selection) — one i hope will be useful to someone out there. i plan on writing a lot this summer, regardless of how much interaction or how many visits i get. still, i wouldn’t be lying if i said it would be fantastic if anyone who reads this and finds it remotely helpful would [reach out](/contact).
