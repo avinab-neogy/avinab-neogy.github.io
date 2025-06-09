@@ -3,6 +3,7 @@ url: "https://avinab-neogy.github.io/"
 baseurl: ""
 
 markdown: kramdown
+highlighter: rouge
 #ins_logo: "./bits-logo.png"
 
 tracking_id: #

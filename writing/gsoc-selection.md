@@ -98,20 +98,21 @@ although i didn’t get selected that year(well my project itself did not get se
 
 ## back to present
 
-fast forward to 2025: i had left my job to prep for an entrance exam for iisc. even with a sub-300 rank, i didn’t get into my preferred program. right around then, gsoc was announced—so i figured, why not try again?
+fast forward to 2025: i had left my job to prep for an entrance exam for [iisc](https://iisc.ac.in/). even with a sub-300 rank, i didn’t get into my preferred program. right around then, gsoc was announced—so i figured, why not try again?
 
 i was still on the r contributors slack, so i pinged heather (admin + r project board member) about getting back into contributing. she assigned me some issues—one was fixing example errors in package docs, another was a screen flicker bug when scrolling. since r is mostly c under the hood, my c experience helped a lot. and, not gonna lie, having llms around made debugging faster (but seriously, don’t let llms do all your thinking).
 
-after a few patches, heather mentioned she was mentoring a gsoc project around the r dev container. this container is basically a ready-to-go environment: you can run r, build packages, and skip the hassle of local installs or dependency hell. there are some size limits, but for most users (even power users), it’s more than enough.
+after being consistent for a while, heather mentioned she was mentoring a gsoc project around the r dev container. this container is basically a ready-to-go environment: you can run r, build packages, and skip the hassle of local installs or dependency hell. there are some size limits, but for most users (even power users), it’s more than enough.
+the key here is being consistent
 
 the project had been built over the last two gsoc cycles, but some things still needed work—like <span style="color:blue;">lldb integration for c debugging</span>, <span style="color:blue;">better mac/windows support</span>, and <span style="color:blue;">positron ide compatibility</span>.
 
 
 #### lldb: c debugging inside the container
 
-most of r is written in c, so debugging at that level is huge. the goal was to get lldb working inside the container. this meant building r with debug symbols and setting up the right launch config.
+most of r is written in c, so debugging at that level is huge. the goal was to get lldb working inside the container. this means building r with debug symbols and setting up the right launch config.
 
-**docker run config for debugging:**
+*docker run config for debugging:*
 
 ```json
 // in devcontainer.json
@@ -124,16 +125,23 @@ most of r is written in c, so debugging at that level is huge. the goal was to g
 
 <span style="color:blue;">these flags are essential for ptrace-based debugging like lldb</span>.
 
-**build r with debug symbols:** (building with debug symbols is like making your program “debugger-friendly” so you can actually see and fix bugs in your source code, not just guess from some errors.)
+so what exactly is ptrace - ptrace is process trace, a program which is like a debugging assistant. what it does it, it lets one program observe and control another program which is running.
+think of it like a program which enables a parent(lldb) to hold a child(the program being debugged) hand through a maze – the parent can see where the child is, pause them at checkpoints, and even adjust their path.
 
-run `./configure --enable-debug && make -j4`, then use lldb or vscode to set breakpoints and debug your c code while running r.
+*build r with debug symbols:* 
+
+(building with debug symbols enables your program to be "debugger-friendly," allowing you to directly observe and diagnose issues within your source code, rather than relying on indirect error messages.)
+
+run 
+```bash
+./configure --enable-debug && make -j4
+```
+
+, then use lldb or vscode to set breakpoints and debug your c code while running r.
 
 #### making it work on macos & windows
 
 while the container already works well on linux, for <span style="color:blue;">real adoption, it needs to run smoothly on mac and windows too</span>.
-
-**macos:**  fix file sync issues using docker delegated mounts with `consistency=delegated` and install any missing r dependencies.  
-**windows (wsl2):** resolve path mapping quirks with the correct workspace mounts and validate file access using `docker exec`.
 
 the plan is also to build docker containers that support both arm and x86 architectures, so everyone can use the same setup regardless of their machine.
 
@@ -141,14 +149,18 @@ the plan is also to build docker containers that support both arm and x86 archit
 
 not everyone prefers vscode, so adding <span style="color:blue;">positron ide support</span> is a priority. the idea is to use devpod to create an ssh-enabled workspace, then connect positron remotely.
 
-**devpod workspace setup:**
+*devpod workspace setup:*
 
 
 ```bash
 devpod workspace create --provider docker-desktop --ide positron --ports 2000:2000
 ```
 
-**positron config (host-side):**
+this spins up a dev container with docker, and the --ports 2000:2000 bit just means:
+“open up port 2000 in the container and map it to port 2000 on your machine.”
+so, anything inside the container (like ssh or lldb) that listens on port 2000 is now reachable from your host at the same port.
+
+*positron config (host-side):*
 
 ```json
 {
@@ -160,17 +172,21 @@ devpod workspace create --provider docker-desktop --ide positron --ports 2000:20
   }
 }
 ```
+this tells positron:
+“connect to the workspace at r-dev.devpod using ssh, and talk to lldb on port 2000.”
+so, when you open positron, it uses ssh over port 2000 to reach right into your container.
 
+tl;dr:
+by forwarding port 2000 and pointing both devpod and positron at it, you set up a clean, direct ssh tunnel for remote development and debugging. it’s the same trick vscode remote uses, just with a different ide.
 
-with this, you will be able to set breakpoints in positron, start a debug session, and inspect c code—just like you would in vscode.
+with this, we will be able to set breakpoints in positron, start a debug session, and inspect c code—just like you would in vscode.
 
 
 
 ### why this matters
 
-<span style="color:blue;">making the r dev container robust and easy to debug means more contributors can jump in without fighting their setup</span>. it’s about lowering the barrier to entry for open source and making sure your time goes into code, not config.
+<span style="color:blue;">making the r dev container robust and easy to debug means more contributors can jump in without the hassle of a local setup</span>. it’s about lowering the barrier to entry for open source and making sure your time goes into code, not config.
 
----
 
 i’m excited to see this land in time for r dev day @ user! 2025. if you’re reading this and want to get started with r development, this container is probably the easiest way in. and if you hit a wall, you know where to [reach out](/contact).
 
