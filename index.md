@@ -21,7 +21,7 @@ hit me up if you've got a cool idea regarding any of those and wish to collabora
 
 * life?
 
-* working on the r-dev container as a part of gsoc.
+* working on the r-dev container as a part of [gsoc](https://summerofcode.withgoogle.com/).
 
 * implementing [isl](https://www.statlearning.com/) in r and python.
 
@@ -75,7 +75,7 @@ hit me up if you've got a cool idea regarding any of those and wish to collabora
 
 * [the future of ai](https://course.bluedot.org/certification?id=recMn8cQn1aKJyFwG)
 
-* [ai alignment]
+* [ai alignment](https://bluedot.org/courses/alignment)
 
 ## publications
 
