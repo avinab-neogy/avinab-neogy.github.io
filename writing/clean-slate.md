@@ -1,6 +1,6 @@
 ---
 layout: default
-ttitle: clean slate
+title: clean slate
 description: hi! i'm avinab. in this blog post, i explain what led me to start writing. interpretability hehh...
 ---
 
