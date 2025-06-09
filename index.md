@@ -6,7 +6,7 @@ description: hi! i'm avinab, a recent graduate exploring the world of interpreta
 
 > "Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness, that most frightens us." - Marianne Williamson
 
-## about Me
+## about me
 
 <img class="profile-picture" src="profile.jpg">
 
@@ -31,6 +31,8 @@ hit me up if you've got a cool idea regarding any of those and wish to collabora
 * while in college, i managed the finances for the [sports fest](https://bits-spree.org/) in 2023. it was a daunting task and came with its fair share of real-life lessons.
 
 * i interned with the business intelligence team at [licious](https://www.licious.in/) as a data analyst/scientist, where i learned how the business works. during my time there, i visited all operational levels from the production centers to the hubs and received a return offer.
+
+* got a global rank of 202 in [picoctf 2021](https://picoctf.org/)
 
 * was part of my school quiz club, which was one of the most fun periods of my life. leaving for another town for a national quiz when you have your pre-boards the next day was an amazing feeling!
 
