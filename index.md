@@ -41,7 +41,7 @@ hit me up if you've got a cool idea regarding any of those and wish to collabora
 
 ## future
 
-* [mats](https://www.matsprogram.org/? 
+* [mats](https://www.matsprogram.org/)? 
 
 * masters?
 
@@ -69,7 +69,7 @@ hit me up if you've got a cool idea regarding any of those and wish to collabora
 
 ## publications
 
-Hopefully coming soon!
+hopefully coming soon!
 
 <img src="meme.png">
 
