@@ -19,12 +19,12 @@ nav:
  - name: "About"
    link: "/"
  - name: "Projects"
-   link: "projects"
+   link: "/projects"
  - name: "Interests"
-   link: "interests"
+   link: "/interests"
  - name: "Writing"
-   link: "writing"
+   link: "/writing"
  - name: "Contact"
-   link: "contact"
+   link: "/contact"
 
 theme: jekyll-theme-minimal
