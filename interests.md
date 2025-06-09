@@ -61,7 +61,7 @@ i prefer biographies and non fiction but have recently picked up on the [mistbor
 ### music
 
 well, there isn’t a single genre i’m obsessed with, but if i had to pick one, it would probably be  [dream pop](https://en.wikipedia.org/wiki/Dream_pop). i genuinely listen to a lot of music—no irony intended—and you can find my listening history [here](https://www.last.fm/user/aomine2023).
-also i listened to coldplay live recently and the experience was surreal.
+also i listened to coldplay live recently and the experience was surreal.i love making music as well and i play the ukulele.
 
 #### favourite artists
 
