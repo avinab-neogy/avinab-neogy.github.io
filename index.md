@@ -10,7 +10,7 @@ description: hi! i'm avinab, a recent graduate exploring the world of interpreta
 
 <img class="profile-picture" src="profile.jpg">
 
-hi! i’m avinab. i graduated last year from bits goa with a major in mechanical engineering. along the way, i also took up courses in data science and finance to broaden my perspective. i was a core member of the cybersec club at bits goa, where i got hands-on with security and tech. my research interests lie in nlp and mechanistic interpretability.
+hi! i’m avinab. i graduated last year from bits goa with a major in mechanical engineering. along the way, i also took up courses in data science and finance to broaden my perspective. i was a core member of the cybersec club at bits goa, where i got hands-on with security and tech. my research interests lie in nlp and mechanistic interpretability.you can find my incoherent ramblings over at [writing](/writing)
 
 hit me up if you've got a cool idea regarding any of those and wish to collaborate!
 
