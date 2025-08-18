@@ -4,6 +4,20 @@ title: writing
 description: hi! i'm avinab. here you can find a collection of my technical writings.
 ---
 
+## primer
+
+start here with the basics for ml.
+
+<ol>
+  <li>
+    <span style="display: inline-block;"><a href="/writing/linear-algebra">linear algebra for machine learning</a></span>
+    <span style="float: right;"><small>august 17, 2025</small></span><br>
+    key concepts in vectors and matrices, explained simply.
+  </li>
+</ol>
+
+---
+
 ## writings
 
 <ol>
@@ -19,6 +33,4 @@ description: hi! i'm avinab. here you can find a collection of my technical writ
   </li>
 </ol>
 
-
 shoot me an email if you have anything to add or discuss!
-
