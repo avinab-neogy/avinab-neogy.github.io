@@ -38,15 +38,20 @@ the interactive demo below lets you see this in action:
   matrix:<br>
   <span id="label-matrix">⎡ 1  0 ⎤<br>⎣ 0  1 ⎦</span>
 </div>
-<div class="grid-container">
+<div class="grid-container" style="display:flex; flex-direction:column; align-items:center;">
   <canvas id="grid-canvas" class="grid-canvas" width="500" height="300"></canvas>
-  <div class="grid-controls">
-    <label>a₁₁: <input type="range" id="m11" min="-3" max="3" step="0.1" value="1"></label>
-    <label>a₁₂: <input type="range" id="m12" min="-3" max="3" step="0.1" value="0"></label>
-    <label>a₂₁: <input type="range" id="m21" min="-3" max="3" step="0.1" value="0"></label>
-    <label>a₂₂: <input type="range" id="m22" min="-3" max="3" step="0.1" value="1"></label>
+  <div class="grid-controls" style="margin-top:20px;">
+    <div style="display:flex; gap:32px; justify-content:center; margin-bottom:8px;">
+      <label>a₁₁: <input type="range" id="m11" min="-3" max="3" step="0.1" value="1"></label>
+      <label>a₁₂: <input type="range" id="m12" min="-3" max="3" step="0.1" value="0"></label>
+    </div>
+    <div style="display:flex; gap:32px; justify-content:center;">
+      <label>a₂₁: <input type="range" id="m21" min="-3" max="3" step="0.1" value="0"></label>
+      <label>a₂₂: <input type="range" id="m22" min="-3" max="3" step="0.1" value="1"></label>
+    </div>
   </div>
 </div>
+
 
 <p style="max-width:500px; margin-top:1.2rem;">
 <b>what do the sliders do?</b><br>
