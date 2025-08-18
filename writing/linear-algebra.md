@@ -184,6 +184,20 @@ $$</span>), then
 \]
 </div>
 
+**rank-nullity theorem**
+
+the rank-nullity theorem links kernel and rank for any linear map:
+$$
+\operatorname{rank}(f) + \operatorname{nullity}(f) = n
+$$
+where
+$$
+\operatorname{nullity}(f) = \dim(\ker(f))
+$$
+
+so, the number of independent constraints (rank) plus the number of free directions (nullity) always equals the number of variables. if rank goes up, nullity goes down—your degrees of freedom are reduced. this is why counting kernel and rank gives you the full picture of which directions survive after constraints.
+
+
 **geometric intuition:**
 - <span style="color:#2062b8;">\( n \)</span>: number of variables = initial degrees of freedom  
 - <span style="color:#2062b8;">\( m \)</span>: number of independent equations = constraints reducing freedom
