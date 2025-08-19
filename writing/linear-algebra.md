@@ -332,3 +332,91 @@ document.addEventListener("DOMContentLoaded", function() {
   drawDoF();
 });
 </script>
+
+
+## isomorphisms: when nothing gets lost
+
+after seeing how constraints reduce degrees of freedom, we naturally ask: **what happens when we can fully reverse a transformation?** this brings us to **isomorphisms**—the "perfect translators" of linear algebra.
+
+an invertible linear map (isomorphism) is like having a perfect translator between two vector spaces, nothing gets lost in translation, and you can always go back to the original. in our degrees of freedom language: an isomorphism preserves all degrees of freedom.
+
+### the three conditions that lock together
+
+in finite dimensional spaces, these three properties are completely equivalent and they are exactly what you need for isomorphisms.:
+
+$$
+\color{#2062b8}{\text{injective} \iff \text{surjective} \iff \text{invertible}}
+$$
+
+- **injective** (one-to-one): different inputs give different outputs
+- **surjective** (onto): every possible output is reached  
+- **invertible**: you can undo the transformation
+
+**connecting to rank-nullity:** remember our formula 
+$$
+\dim(\ker(f)) = n - \operatorname{rank}(f)
+$$
+? for isomorphisms between spaces of the same dimension, we need the kernel to be trivial (only the zero vector) and the rank to be maximal. this forces both injectivity and surjectivity.
+
+## bases: your lens for viewing spaces
+
+here's where things get strategic. every vector space has infinitely many possible **bases** - minimal sets of independent vectors that can build everything else through scaling and addition.
+
+think of a basis as your "lens" for viewing a vector space. once you know how a linear map transforms each basis vector, you know how it transforms every vector in the space.
+
+wait, we have'nt yet discussed what vector space is atleast formally right 
+
+a vector space is like a playground for vectors — objects you can add together and stretch or shrink by numbers (scalars). the main idea is: no matter how you combine or scale them, you’re always still playing in the same space.
+think of it as a set of arrows, or lists of numbers, or even functions, where you can mix and scale things any way you like, and you never have to leave the playground. this simple set of rules is the foundation for all of linear algebra!
+
+### the three mindsets for choosing your lens
+
+1. **fixed lens (limiting)**: stick to standard coordinates (x, y, z axes). useful for computation but hides structure.
+
+2. **no lens (abstract)**: work purely with abstract maps and concepts. mathematically pure but hard to visualize.
+
+3. **strategic lens (optimal)**: choose your basis to fit the problem structure. **this is what you want to master.**
+
+the strategic approach means reading your problem carefully, identifying the important subspaces or transformations, then choosing a basis that makes those structures obvious.
+
+### building better bases: steinitz exchange theorem
+
+the steinitz exchange theorem is your "basis construction kit." it says: if you have a basis for any subspace, you can always extend it to a basis for the entire space.
+
+**practical example:** have a line through the origin in 3d? pick one vector for the line's basis, then steinitz guarantees you can find two more vectors to complete a basis for all of 3d space.
+
+**connection to rank-nullity:** take a basis for the kernel $\ker(f)$, extend it to the full input space using steinitz. now you can literally see the dimensions in the formula:
+$$
+\dim(\ker(f)) + \operatorname{rank}(f) = n
+$$
+
+the kernel basis vectors show your "free directions," and the remaining vectors get transformed to span the image.
+
+### from structure to geometry: gram-schmidt
+
+once you have a structurally good basis (one that respects your subspaces), use **gram-schmidt** to make it geometrically nice:
+
+- all vectors have unit length
+- all vectors are mutually perpendicular  
+- preserves the span at each step
+
+**workflow:** steinitz builds bases that respect structure → gram-schmidt makes them geometrically nice.
+
+<div style="background: #f8f9fa; padding: 1.5em; border-radius: 8px; margin: 2em 0;">
+<h4>💡 practical tip</h4>
+when doing gram-schmidt by hand, first make vectors orthogonal by subtracting projections, then normalize to unit length at the very end. this avoids messy fractions throughout the calculation.
+</div>
+
+### why this matters: the big picture
+
+bases aren't just abstract math—they're how you **choose your coordinate system** to make problems tractable:
+
+- in data science: principal component analysis finds the basis that best captures variance
+- in differential equations: eigenvector bases diagonalize systems  
+- in computer graphics: orthonormal bases enable efficient rotations and projections
+
+the key insight: **linear algebra problems become dramatically simpler when you choose the right basis.** this is why understanding isomorphisms (which preserve basis structure) and having tools like steinitz and gram-schmidt (which let you build custom bases) are so powerful.
+
+next, we'll see how these ideas connect to eigenvalues and eigenvectors—the ultimate example of choosing a basis that reveals hidden structure in your linear transformation.
+
+
