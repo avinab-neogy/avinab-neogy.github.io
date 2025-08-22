@@ -12,16 +12,17 @@ linear algebra is the study of **linear maps**: functions that preserve addition
 
 in math terms, for a linear map \( f \):
 
-$$
-\color{#2062b8}{f(\mathbf{v}_1 + \mathbf{v}_2) = f(\mathbf{v}_1) + f(\mathbf{v}_2)}
-$$
-
 
 $$
 \color{#2062b8}{f(c \mathbf{v}) = c f(\mathbf{v}) \quad \text{for any number } c}
 $$
 
-these rules might sound abstract, but they actually describe real operations that show up everywhere: stretching, rotating, shearing or flipping space. you'll find them in physics (forces), graphics (rotations, scaling) and at the heart of every neural network layer.
+$$
+\color{#2062b8}{f(\mathbf{v}_1 + \mathbf{v}_2) = f(\mathbf{v}_1) + f(\mathbf{v}_2)}
+$$
+
+
+these rules might sound abstract, but they actually describe real operations that show up everywhere: stretching, rotating, shearing or flipping space. you'll find them in physics (forces), graphics (rotations, scaling) and in a neural network.
 
 ---
 
@@ -53,7 +54,7 @@ the interactive demo below lets you see this in action:
 </div>
 
 
-<p style="max-width:500px; margin-top:1.2rem;">
+<p style="max-width:700px; margin-top:1.2rem;">
 <b>what do the sliders do?</b><br>
 - <b>a₁₁:</b> controls stretching/compression or flipping along the <b>x</b> direction.<br>
 - <b>a₁₂:</b> mixes the <b>y</b> value into the new <b>x</b> (shearing/rotation).<br>
@@ -68,6 +69,42 @@ these four sliders make a 2×2 matrix:<br>
 <br>
 this matrix transforms every point (x, y) to (a₁₁x + a₁₂y, a₂₁x + a₂₂y).<br>
 experiment with the sliders to see stretches, shears, rotations, and reflections!
+
+the multiplication \(A \mathbf{x}\) works like this:
+
+\[
+A = \begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}
+,
+\quad
+\mathbf{x} = \begin{bmatrix} x \\ y \end{bmatrix}
+\]
+
+multiplying \(A\) by \(\mathbf{x}\) means taking the dot product of each row of \(A\) with \(\mathbf{x}\):
+
+\[
+A \mathbf{x} =
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} \cdot x + a_{12} \cdot y \\
+a_{21} \cdot x + a_{22} \cdot y
+\end{bmatrix}
+\]
+
+<span style="color:blue;"> a dot product is an operation that takes two equal-length vectors and returns a single number by multiplying corresponding entries together and then summing those products.
+</span>
+in the case of matrix multiplication, you take the dot product of each row of the matrix with the input vector. since the matrix has two rows, you get two dot products, one per row, resulting in a new vector with two components. each component shows how much the input vector projects onto that row’s direction, giving the transformed coordinates.
+
 </p>
 
 <script>
@@ -141,7 +178,8 @@ the power of linear maps: no matter how the grid morphs, straight lines remain s
 Every linear map 
 $$
 \color{#2062b8}{ f : \mathbb{R}^n \to \mathbb{R}^m }
-$$ can be represented by a matrix 
+$$ 
+where n is the number of input variables (dimensions in the domain) and m is the number of output variables (dimensions in the codomain), can be represented by a matrix 
 
 $$
 \color{#2062b8}{ A \in \mathbb{R}^{m \times n} .}
@@ -334,13 +372,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-## isomorphisms: when nothing gets lost
+### isomorphisms: when nothing gets lost
 
 after seeing how constraints reduce degrees of freedom, we naturally ask: **what happens when we can fully reverse a transformation?** this brings us to **isomorphisms**—the "perfect translators" of linear algebra.
 
 an invertible linear map (isomorphism) is like having a perfect translator between two vector spaces, nothing gets lost in translation, and you can always go back to the original. in our degrees of freedom language: an isomorphism preserves all degrees of freedom.
 
-### the three conditions that lock together
+**the three conditions that lock together**
 
 in finite dimensional spaces, these three properties are completely equivalent and they are exactly what you need for isomorphisms.:
 
@@ -349,16 +387,16 @@ $$
 $$
 
 - **injective** (one-to-one): different inputs give different outputs
-- **surjective** (onto): every possible output is reached  
+- **surjective** (onto): every possible output is reached  ie. range is equal to the codomain (think about it :p)
 - **invertible**: you can undo the transformation
 
-**connecting to rank-nullity:** remember our formula 
+remember our formula 
 $$
 \dim(\ker(f)) = n - \operatorname{rank}(f)
 $$
 ? for isomorphisms between spaces of the same dimension, we need the kernel to be trivial (only the zero vector) and the rank to be maximal. this forces both injectivity and surjectivity.
 
-## bases: your lens for viewing spaces
+### bases: your lens for viewing spaces
 
 here's where things get strategic. every vector space has infinitely many possible **bases** - minimal sets of independent vectors that can build everything else through scaling and addition.
 
@@ -369,17 +407,17 @@ wait, we have'nt yet discussed what vector space is atleast formally right
 a vector space is like a playground for vectors — objects you can add together and stretch or shrink by numbers (scalars). the main idea is: no matter how you combine or scale them, you’re always still playing in the same space.
 think of it as a set of arrows, or lists of numbers, or even functions, where you can mix and scale things any way you like, and you never have to leave the playground. this simple set of rules is the foundation for all of linear algebra!
 
-### the three mindsets for choosing your lens
+**the three mindsets for choosing your lens**
 
 1. **fixed lens (limiting)**: stick to standard coordinates (x, y, z axes). useful for computation but hides structure.
 
-2. **no lens (abstract)**: work purely with abstract maps and concepts. mathematically pure but hard to visualize.
+2. **no lens (abstract)**: work purely with abstract maps and concepts. mathematically pure but hard to visualize for normal folks like me ;-;.
 
 3. **strategic lens (optimal)**: choose your basis to fit the problem structure. **this is what you want to master.**
 
 the strategic approach means reading your problem carefully, identifying the important subspaces or transformations, then choosing a basis that makes those structures obvious.
 
-### building better bases: steinitz exchange theorem
+**building better bases: steinitz exchange theorem**
 
 the steinitz exchange theorem is your "basis construction kit." it says: if you have a basis for any subspace, you can always extend it to a basis for the entire space.
 
