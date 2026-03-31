@@ -5,4 +5,6 @@
 
 - repo for [learning bash scripting](https://github.com/avinab-neogy/bash-learning?tab=readme-ov-file#readme)
 
+- [makemore](/makemore/) - building a character-level language model from scratch
+
 ## paper implementations
